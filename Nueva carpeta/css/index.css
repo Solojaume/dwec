@@ -1,0 +1,24 @@
+#ahorcado{
+  
+    font-size: large;
+}
+
+#ahorcadoPorLetras{
+    visibility: hidden;
+    display: none;
+    font-size: large;
+}
+
+.letras{
+    margin: -0.18%;
+}
+.navbar{
+    background-color: #64C5F5;
+}
+body{
+    background: #F5EF4C;
+    width: 90%;
+    height: 90%;
+    margin: 0 5% 5% 5%;
+}
+
