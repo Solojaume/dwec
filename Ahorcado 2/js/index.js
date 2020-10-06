@@ -1,19 +1,28 @@
-import Ahorcado from '../modelo/ahorcado.js';
+import Ahorcado from './ahorcado.js';
+
 window.onload = function() {
-  export var inicio = document.getElementById("inicio");
-  export var introducir = document.getElementById("introducir");
-  export var juego = document.getElementById("juego");
-  export var espaciospalabra = document.getElementById("espaciospalabra");
-  export var letrasfalladas = document.getElementById("letrasfalladas");
+  var inicio = document.getElementById("inicio");
+  var introducir = document.getElementById("introducir");
+  var juego = document.getElementById("juego");
+  var espaciospalabra = document.getElementById("espaciospalabra");
+  var letrasfalladas = document.getElementById("letrasfalladas");
  
   document.getElementById("empezar").addEventListener("click",muestraocultainicio);
+  document.getElementById("anadir").addEventListener("click",muestraocultainicio);
   document.getElementById("empezar2").addEventListener("click",muestraocultaintroducir);
   document.getElementById("comprobar").addEventListener("click",compruebapalabra);
 };
 
+var ahorcado = new Ahorcado();
+
 function muestraocultainicio() {
-  inicio.style.display = "none";
-  introducir.style.display = "inline";
+  this.style.display = "none";
+  if(this.id=="empezar"){
+    introducir.style.display = "inline";
+  }
+  else{
+    juego.style.display = "inline";
+  }
 }
 
 function muestraocultaintroducir() {
