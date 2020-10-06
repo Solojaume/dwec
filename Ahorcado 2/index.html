@@ -35,8 +35,8 @@
     <!-- Custom js for this template -->
     <script src="js/index.js"></script>
     <script src="js/lodash/lodash.js"></script>
-    <script src="js/ahorcado/ahorcado.js"></script>
-    <script src="js/controlador/controlador.js"></script>
+    <script type="module" src="js/modelo/ahorcado.js"></script>
+  
  
   </head>
   <body class="text-center">
@@ -49,9 +49,13 @@
 
   <div role="main" class="inner cover" id="inicio">
     <h1 class="cover-heading">Bienvenido al ahorcado</h1>
-    <p class="lead">Cuando estes listo dale click a Empezar juego</p>
+    <p class="lead">Cuando estes listo dale click a Empezar juego. La palabra se selecciona automaticamente de una lista de palabras</p>
     <p class="lead">
       <a href="#" class="btn btn-lg btn-secondary" id="empezar">Empezar Juego</a>
+    </p>
+    <p class="lead">Puedes añadir una palabra a la lista de palabras seleccionables</p>
+    <p class="lead">
+      <a href="#" class="btn btn-lg btn-secondary" id="anadir">Añadir palabra</a>
     </p>
   </div>
 
