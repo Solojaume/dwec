@@ -14,9 +14,10 @@ window.onload = function() {
 };
 
 var ahorcado = new Ahorcado();
-
+console.log("hola");
 function muestraocultainicio() {
-  this.style.display = "none";
+  inicio.style.display = "none";
+
   if(this.id=="empezar"){
     introducir.style.display = "inline";
   }

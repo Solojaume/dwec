@@ -1,4 +1,4 @@
-export class Ahorcado{
+ class Ahorcado{
     constructor(){
         this.arrayletrasfalladas = [];
         //Array con las letras de la palabra
@@ -16,7 +16,7 @@ export class Ahorcado{
 
     }
 
-    export getArrayLetrasFalladas(){
+    getArrayLetrasFalladas(){
         return this.arrayletrasfalladas;
     }
 
