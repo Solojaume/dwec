@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="description" content="Esto es un ahorcado">
+    <meta name="author" content="Jaume Pons and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
     <title>Ahorcado</title>
 
@@ -28,27 +28,28 @@
           font-size: 3.5rem;
         }
       }
+    
+      /*ELIMINAR MÁS TARDE MOVIENDO A SASS */
+      .btn-letras{
+        margin: 0.2em;
+      }
     </style>
     <!-- Custom styles for this template -->
     <link href="css/cover.css" rel="stylesheet">
 
     <!-- Custom js for this template -->
     <script src="js/index.js"></script>
-    <script src="js/lodash/lodash.js"></script>
-    <script type="module" >
-        import Ahorcado from './js/ahorcado.js';
-        var a= new Ahorcado();
-        console.log(a.vidas);
-    </script>
- 
-  
+    <script src="js/lodash.js"></script>
+    <script type="module" src="js/ahorcado.js"></script>
  
   </head>
   <body class="text-center">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
   <header class="masthead mb-auto">
     <div class="inner">
-      <h3 class="masthead-brand justify-content-center" id="ahorcadovida">Ahorcado</h3>
+      <h3 class="masthead-brand justify-content-center" >Ahorcado</h3>
+      <div id = "barravidas"></div>
+      
     </div>
   </header>
 
@@ -65,28 +66,31 @@
   </div>
 
   <div role="main" class="inner cover" id="introducir">
-    <h1 class="cover-heading">Introduce la palabra a adivinar</h1>
+    <h1 class="cover-heading">Añade una palabra con la que jugar</h1>
     <p class="lead"><input type="text" id="palabraintroducida"></input></p>
 
     <p class="lead">
-      <a href="#" class="btn btn-lg btn-secondary" id="empezar2">Empezar juego</a>
+      <a href="#" class="btn btn-lg btn-secondary" id="empezar2">Volver a inicio</a>
     </p>
   </div>
 
   <div role="main" class="inner cover" id="juego">
     <h1 class="cover-heading">Adivina la palabra</h1>
     <p class="lead" id="espaciospalabra"></p>
-    <p class="lead">Introduce una letra:</p>
-    <p class="lead"><input type="text" maxlength="1" id="letraintroducida"></input></p>
+    
+    <p class="lead" >
+       <div id="teclado">
+        <p class="lead" >Seleccione una letra:</p>
+       </div>
+    </p>
+    <p class="lead">Has  
+      <span id="perdidoganado"></span>
+    </p>
     <p class="lead">
-      <a href="#" class="btn btn-lg btn-secondary" id="comprobar">Comprobar</a>
+      <a href="#" class="btn btn-lg btn-secondary" id="volverinicio">Volver a inicio</a>
     </p>
-    <p class="lead">Letras falladas: 
-      <span id="letrasfalladas"></span>
-    </p>
-
-
   </div>
+
   <footer class="mastfoot mt-auto" id="footer">
     <div class="inner">
       <p>Cover template for <a href="https://getbootstrap.com/">Ahorcado</a>, by <a href="https://twitter.com/mdo">Jaume Pons</a>.</p>

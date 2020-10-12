@@ -64,7 +64,7 @@ function compruebapalabra(){
       }
       acer=acer+1;
     }else if(letrasacertadas.length==letraspalabra.length){
-        texto = texto+letrasacertadas[index] + " ";
+        texto = texto + letrasacertadas[index] + " ";
     }else if(letrasacertadas.length<=letraspalabra.length) {
       texto = texto+"_ ";
       letrasacertadas.push('_');
