@@ -84,10 +84,7 @@ body {
     float: right;
   }
 }
-/*div con id juegp*/
-#juego,#introducir{
-  display:none;
-}
+
 /*
  * Cover
  */

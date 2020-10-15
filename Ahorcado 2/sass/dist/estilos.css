@@ -1,5 +1,22 @@
 @charset "UTF-8";
-/*div con id juegp*/
+.vida {
+  margin: 0.1em;
+}
+
+/*Oculto el div juego, introducir y barravidas*/
+#juego, #introducir {
+  display: none;
+}
+
+.leed {
+  padding: 1em;
+}
+
+#barravidas {
+  display: none;
+  float: right;
+}
+
 .bd-placeholder-img {
   font-size: 1.125rem;
   text-anchor: middle;
@@ -18,7 +35,3 @@
 .btn-letras {
   margin: 0.2em;
 }
-
-/*# sourceMappingURL=index.css.map */
-
-/*# sourceMappingURL=index.css.map */

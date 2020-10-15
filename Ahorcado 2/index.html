@@ -13,30 +13,11 @@
     <!-- Bootstrap core CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
     
-      /*ELIMINAR MÁS TARDE MOVIENDO A SASS */
-      .btn-letras{
-        margin: 0.2em;
-      }
-    </style>
     <!-- Custom styles for this template -->
     <link href="css/cover.css" rel="stylesheet">
-
+    <link href="css/index.css" rel="stylesheet">
+    <link href="sass/estilos.css" rel="stylesheet">
     <!-- Custom js for this template -->
     <script src="js/index.js"></script>
     <script src="js/lodash.js"></script>
@@ -70,7 +51,7 @@
     <p class="lead"><input type="text" id="palabraintroducida"></input></p>
 
     <p class="lead">
-      <a href="#" class="btn btn-lg btn-secondary" id="empezar2">Volver a inicio</a>
+      <a href="#" class="btn btn-lg btn-secondary" id="empezar2">Añadir palabra y Volver a inicio</a>
     </p>
   </div>
 
@@ -83,9 +64,7 @@
         <p class="lead" >Seleccione una letra:</p>
        </div>
     </p>
-    <p class="lead">Has  
-      <span id="perdidoganado"></span>
-    </p>
+    <p class="lead" id="perdidoganado"></p>
     <p class="lead">
       <a href="#" class="btn btn-lg btn-secondary" id="volverinicio">Volver a inicio</a>
     </p>
