@@ -1,0 +1,29 @@
+.container {
+  margin: auto;
+  max-width: 0px;
+  max-height: 700px;
+  text-align: center;
+}
+
+.inner {
+  margin: auto;
+}
+
+#contenedor {
+  border: 1px black solid;
+}
+
+#cuadrado {
+  right: 125px;
+  top: 125px;
+  bottom: 125px;
+  left: 125px;
+  position: relative;
+  height: 50px;
+  width: 50px;
+  background-color: yellow;
+}
+
+/*# sourceMappingURL=index.css.map */
+
+/*# sourceMappingURL=index.css.map */
