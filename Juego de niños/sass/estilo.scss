@@ -1,0 +1,42 @@
+body {
+    text-align: center;
+}
+
+/*Creacion de los 2 elementos*/
+#agujeroCirculo{
+    border: black 1px solid;
+    width: 100px;
+    height: 100px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    margin: 1.5em auto 0;
+}
+
+.arrastrables{
+    width: 100px;
+    height: 100px;
+}
+
+#agujeroCuadrado{
+    border: black 1px solid;
+    width: 100px;
+    height: 100px;
+}
+
+#relleno{
+    width: 1px;
+    height: 100px;
+}
+
+#contenedor{
+    border: black 1px solid;
+    width: 30%;
+    min-height: 100px;
+    float:left;
+    margin: auto;
+}
+#tortuga{
+    left:50%;
+}
+
