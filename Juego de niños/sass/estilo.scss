@@ -2,15 +2,12 @@ body {
     text-align: center;
 }
 
-/*Creacion de los 2 elementos*/
-#agujeroCirculo{
+/*Estilos para el div donde estaran originalmente*/
+#contenedor{
     border: black 1px solid;
-    width: 100px;
-    height: 100px;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-    margin: 1.5em auto 0;
+    width: 400px;
+    min-height: 200px;
+    margin:1.5em auto;
 }
 
 .arrastrables{
@@ -18,25 +15,34 @@ body {
     height: 100px;
 }
 
-#agujeroCuadrado{
-    border: black 1px solid;
-    width: 100px;
-    height: 100px;
+#rectangulo{
+    width: 200px;
 }
 
-#relleno{
-    width: 1px;
-    height: 100px;
-}
 
-#contenedor{
-    border: black 1px solid;
-    width: 30%;
-    min-height: 100px;
-    float:left;
-    margin: auto;
-}
+/*Estilos para el contedor de los "agujeros"*/
 #tortuga{
-    left:50%;
+  
+    width: 400px;
+    margin: 1.5em auto;
+    /*Estos son los estilos por defecto que se aplican a todos los agujeros */
+    .agujero{
+        border: black 1px solid;
+        width: 100px;
+        height: 100px;
+        margin: 0.2em ;
+        float: left;
+        &#agujeroCirculo{
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border-radius: 50%; 
+        }
+        &#agujeroRectangulo{
+            width: 200px;
+        }
+        &#agujeroTriangulo{
+           border: 0px transparent;
+           background-image: url("../imagenes/agujeroTriangulo.png");
+        }
+    }
 }
-
