@@ -4,6 +4,9 @@
     height: 100%;
     min-height: 150px;
 }
+.divsComponentes{
+    display:none;
+}
 
 #divIzquierda{
     float: left;
@@ -11,4 +14,11 @@
 
 #divDerecha{
     float: right;
+}
+
+#pieDeFormulario{
+    border: 1px blue solid;
+    min-height: 75px;
+    width: 100%;
+    bottom: 0;
 }

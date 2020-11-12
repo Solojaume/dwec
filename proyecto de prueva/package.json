@@ -1,0 +1,17 @@
+{
+  "name": "proyectoprueba",
+  "version": "0.0.2",
+  "description": ".",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build":"webpack"
+  },
+  "author": "Jaume",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.4.0",
+    "webpack-cli": "^4.1.0"
+  },
+  "dependencies": {}
+}

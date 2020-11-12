@@ -1,0 +1,1 @@
+(()=>{"use strict";document.body.appendChild((e=>{const n=document.createElement("p");return n.innerHTML="Hola beeebes",n})())})();
