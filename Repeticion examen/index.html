@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+         <!--Estilos custom para este proyecto -->
+         <link href="css/estilos.css" rel="stylesheet">
+
+         <!-- JS custom para este proyecto -->
+         <script src="js/index.js"></script>
+    </head>
+    <body>
+        <div class="container" id="divIzquierda">
+            <div>
+                <select id="inputsSeleccionables">
+                    <option value="">Selecciona un tipo de input</option>
+                    <option value="1">Text</option>
+                    <option value="2">Checkbox</option>
+                    <option value="3">Radiobutton</option>
+                </select>
+                <button id="text">Text</button>
+                <button id="checkbox">Checkbox</button>
+                <button id="radiobutton">Radiobutton</button>
+                <button id="submit" draggable="true">Submit</button>
+            </div>
+            <div class="divsComponentes" id="divText">
+                <p>Introduce el texto que aparecera </p>
+                <input type="text" id="inputText">
+                <button id="anyadirText">Añadir</button>
+            </div>
+            <div class="divsComponentes" id="divButton">
+                <p>Introduce el texto que aparecera </p>
+                <input type="text" id="inputCambiarButton">
+                <button id="cambiarButton">Modificar</button>
+            </div>
+
+            <div class="divsComponentes" id="divRadio" >
+                <label >Introduce el numero de radio buttons que quieres añadir</label>
+                <input type="numeric"></input>
+                <button id="continuar"></button>
+                <div id="divInputsRadioButton">
+
+                </div>
+                <button id="anyadirRadio">Añadir</button>
+            </div>
+            <div class="divsComponentes" id="divCheckbox" >
+                <label >Introduce el numero de Checkbox buttons que quieres añadir</label>
+                <input type="numeric"></input>
+                <button id="continuar"></button>
+                <div id="divInputsChecbox">
+
+                </div>
+                <button id="anyadirCheckbox"></button>
+            </div>
+        </div>
+        <form class="container " id="divDerecha">
+            <div class="container" id="pieDeFormulario"></div>
+        </form>
+    </body>
+</html>
