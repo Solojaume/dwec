@@ -51,7 +51,7 @@ window.onload = function () {
     }
 
     function mostrarDivRadio(){
-        divDerecha.style.display="inline";
+        divRadio.style.display="inline";
         let input = document.getElementById("numRadioB");
         input.addEventListener("onchange",   crearInputsParaRadio);
         

@@ -76,7 +76,7 @@ window.onload = function () {
         if (contClicksBoton == 2) {
             let div = document.getElementById("divCambioBoton");
             div.style.display = "inline";
-            console.log("ho");
+            console.log("ho"); 
             contClicksBoton = 1;
         } else {
             contClicksBoton = contClicksBoton + 1;
