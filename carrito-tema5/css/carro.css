@@ -41,7 +41,7 @@ input.cantidad {
     width: 30px;
 }
 
-.delete
+/*.delete
 {
 	background:url(../img/delete.png);
 }
@@ -49,7 +49,7 @@ input.cantidad {
 .delete:hover 
 {
 	background-image:url(../img/delete-hover.png);
-}
+}*/
 
 a.minus, a.add, a.delete {
 	display: block;

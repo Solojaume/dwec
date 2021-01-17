@@ -3,7 +3,8 @@
 var componentes = [];
 
 function createElement() {
-  $('<input/>');
+  var $form = $('<form/>');
+  var input = $('<input type="text">');
 }
 
 function addElement($element) {
@@ -14,6 +15,12 @@ function addElement($element) {
 }
 
 $(function () {
+  $('#btnNuevoFormulario').on("click", function (event) {
+    $('#nuevoFormulario').css("display", "none");
+    $('#genForm').css("display", "inline");
+    $titulo = $('#titulo');
+    $('#divContainerComponentes').addElement();
+  });
   var $elemento = $('div');
   $(".selectComponent").click(function (event) {
     addElement($(this));

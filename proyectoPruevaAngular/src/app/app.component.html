@@ -1,0 +1,21 @@
+<h1 style="text-align:center">
+  Bienvenido a {{ title }}
+</h1>
+<div>
+  <p>Nombre del Empleado:{{nombre}}</p>
+  <p>Edad:{{edad}}</p>  
+  <p *ngIf="edad>=18">Es mayor de edad.</p>
+  <table border="1">
+    <tr>
+      <td>Sueldos</td>
+    </tr>
+    <tr *ngFor="let sueldo of sueldos">
+      <td>{{sueldo}}</td>
+    </tr>
+  </table>
+  <div>
+    <p>{{contador}}</p>
+    <button (click)="incrementar()">Sumar 1</button>
+    <button (click)="decrementar()">Restar 1</button>
+  </div>
+</div>

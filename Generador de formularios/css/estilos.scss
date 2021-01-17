@@ -1,0 +1,24 @@
+
+#genForm{
+    display: none;
+    nav{
+        margin-top: 0.1em;
+        .nav-item{
+            margin:0.5em;
+            margin-bottom: 0;
+        }
+        
+    }
+    #propiedadesElementos{
+        display: none;
+    }
+    
+
+}
+.elementosFormulario{
+    border: 1px solid grey;
+    margin: 1em;
+    p{
+        margin:0;
+    }
+}

@@ -1,0 +1,26 @@
+#genForm {
+  display: none;
+}
+
+#genForm nav {
+  margin-top: 0.1em;
+}
+
+#genForm nav .nav-item {
+  margin: 0.5em;
+  margin-bottom: 0;
+}
+
+#genForm #propiedadesElementos {
+  display: none;
+}
+
+.elementosFormulario {
+  border: 1px solid grey;
+  margin: 1em;
+}
+
+.elementosFormulario p {
+  margin: 0;
+}
+/*# sourceMappingURL=estilos.css.map */
