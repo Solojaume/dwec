@@ -17,6 +17,7 @@ elementosStandardFormulario.set("checkbox", ["complejo", "input"]);
 elementosStandardFormulario.set("select", ["complejo", ""]);
 elementosStandardFormulario.set("button", ["simple", ""]);
 var cantidadInputsComplejos = 1;
+var cantidadComponentes= 0;
 
 //Este metodo muestra un menu de propiedades 
 //La variable crear, es un bolean se utiliza para controlar si se tiene que crear o modificar un elemento
@@ -53,7 +54,7 @@ function addElement(argumentos) {
     //sobrescribira con un nuevo input
     let $input = $('<' + tipo[0] + ' class="inputElemento form-control" >');
     //En la siguiente variable se guarda el div donde ira el o los inputs
-    let $componente = $('<div id="' + $inputMenuPropiedades.val() + '">').addClass("elementosFormulario");
+    let $componente = $('<div class="contenedor" id="' + cantidadComponentes+ '">').addClass("elementosFormulario");
     //En el siguiente let se crea el label del componente
     let $p = $('<p class="labelsElemento">').html($inputMenuPropiedades.val());
     $componente.append($p);
@@ -93,6 +94,7 @@ function addElement(argumentos) {
             $componente.append($input)
         }
         //$input.type = tipo[1];
+        cantidadComponentes= cantidadComponentes+1;
     }
     console.log(argumentos)
 
@@ -109,11 +111,16 @@ function addElement(argumentos) {
 
 }
 
+function editItem(){
+
+}
+
 function ocultarMenuPropiedas() {
     $('#propiedadesElementos').css("display", "none");
     $('#menuElemento').css("display", "inline");
     //Se hace displey block a los li que estan dentro del div menuElemento para que se vean uno debajo del otro
     $('.selectComponent').css('display', 'block');
+    $("#cantidad").val("");
 }
 
 function mostrarInputsMenuComplejo(cantidad) {
