@@ -19,12 +19,12 @@
   display: none;
 }
 
-.elementosFormulario {
+.componente {
   border: 1px solid grey;
   margin: 1em;
 }
 
-.elementosFormulario p {
+.componente p {
   margin: 0;
 }
 /*# sourceMappingURL=estilos.css.map */

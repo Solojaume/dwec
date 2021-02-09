@@ -5,6 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "firefox",
+            "request": "launch",
+            "reAttach": true,
+            "name": "Launch localhost",
+            "url": "http://localhost/dwec/Generador%20de%20formularios%202.0",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
             "name": "Launch Edge",
             "request": "launch",
             "type": "pwa-msedge",
