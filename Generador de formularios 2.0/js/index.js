@@ -8,11 +8,20 @@ function addComponent(tipo) {
     //En el siguiente let se crea el label del componente, en el caso de ser un simple label
     //solo se añade el label
     let $p = $('<p class="labelsElemento">').html($inputMenuPropiedades.val());
+    let $but = $('<button class="btn btn-danger eliminar float-end" id="eliminar'+cantidadComponentes+'">').html("x");
+    $but.on('click',function (event){
+        event.preventDefault();
+        $(this).parent().remove();
+        return false;
+    }); 
+
+    $componente.append($but);
     $componente.append($p);
     let $div = $();
     let $label = $();
     let $input = $();
     var cont = 1;
+    let numeroInputs = $('#cantidad').val();
     switch (tipo) {
         case "text":
             $input = $('<input type="' + tipo + '" name="' + $inputMenuPropiedades.val() +
@@ -25,8 +34,6 @@ function addComponent(tipo) {
             $componente.append($input);
             break;
         case "checkbox":
-            let numeroInputs = $('#cantidad').val();
-
             for (let index = 1; index <= numeroInputs; index++) {
                 let $inputLeido = $('#input' + index).val();
                 $div = $('<div class="form-check">');
@@ -34,7 +41,7 @@ function addComponent(tipo) {
                 $label = $('<label>').addClass("form-check-label").attr('for', $inputLeido + index);
                 $label.html($inputLeido);
 
-                $input = $('<input class="form-check-input" id="' + $inputLeido + index + '"  name="' + $inputMenuPropiedades.val() + '" type="radio" >');
+                $input = $('<input class="form-check-input" id="' + $inputLeido + index + '"  name="' + $inputMenuPropiedades.val() + '" type="checkbox" >');
                 $div.append($input);
                 $div.append($label);
                 $componente.append($div);
@@ -42,8 +49,6 @@ function addComponent(tipo) {
             }
             break;
         case "radio":
-            let numeroInputs = $('#cantidad').val();
-
             for (let index = 1; index <= numeroInputs; index++) {
                 let $inputLeido = $('#input' + index).val();
                 $div = $('<div class="form-check">');
@@ -58,16 +63,52 @@ function addComponent(tipo) {
 
             }
             break;
+        case "dropdown":
+            let $dropdown=$('<select>').addClass('dropdown');
+            for (let index = 0; index <= numeroInputs; index++) {
+                let $inputLeido = $('#input' + index).val();
+
+                let $option = $('<option>').addClass('dropdown-item').attr('href','#');
+                $option.html($inputLeido);
+                $dropdown.append($option);           
+            }
+            $componente.append($dropdown);    
+            break;
+        case 'button':
+            $but=$('<button>').addClass('btn btn-primary');
+            
+            break;
         default:
             console.log("default");
             break;
     }
     //Se añade el componente al formulario
-    $componente.addClass("componente");
+    $componente.addClass("componente "+tipo);
+    //Se Añade al componente el evento click
+    $componente.on('click',function () {
+        let clases= $(this).attr('class');
+
+        console.log(clases.substr(clases.search(' '), clases.lengh));
+        mostrarMenuPropiedadesComponentes($(this));
+         
+    });
+    //Se añade el componente al formulario
+    $('#formContainerComponentes').append($componente);
+    $('#prueba').append($componente.clone());
+    ocultarMenuPropiedades();
+    cantidadComponentes++;
+}
+
+function editarComponente($componente) {
+    
+    
+    //Se añade el componente al formulario
+    $componente.addClass("componente "+tipo);
     $('#formContainerComponentes').append($componente);
     ocultarMenuPropiedades();
     cantidadComponentes = cantidadComponentes + 1;
 }
+
 
 function mostrarMenuComponentesComplejos(cantidad) {
     if (cantidad > 1) {
@@ -93,7 +134,7 @@ function mostrarMenuPropiedadesComponentes(tipo, editarAnayadir) {
     $('#propiedadesComponentes').css('display', 'inline');
     $('#menuComponentes').css("display", "none");
 
-    if (tipo == "radio" || tipo == "checkbox" || tipo == "select") {
+    if (tipo == "radio" || tipo == "checkbox" || tipo == "dropdown") {
         $('#menuComponentesComplejos').css("display", "inline");
     }
 
@@ -103,7 +144,9 @@ function mostrarMenuPropiedadesComponentes(tipo, editarAnayadir) {
             addComponent(tipoComponente);
         });
     } else {
-
+        $("#buttonAnyadirModificar").off("click").click(function (event, tipoComponente = tipo) {
+            editarComponente(tipoComponente);
+        });
     }
 
 }
@@ -133,6 +176,18 @@ $(function () {
 
     $('#buttonCancelar').click(function () {
         ocultarMenuPropiedades();
-    })
+    });
 
+    $('.form-check').click(function (){
+        mostrarMenuPropiedadesComponentes($(this), 'editar');
+    });
+
+    $('.eliminar').on('click',function (event){
+        event.preventDefault();
+        console.log("j");
+        $(this).remove();
+        console.log("j");
+        return false;
+    });
+    
 })

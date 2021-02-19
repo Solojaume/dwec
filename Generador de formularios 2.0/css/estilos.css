@@ -27,4 +27,8 @@
 .componente p {
   margin: 0;
 }
+
+.componente .btn .btn-primary {
+  background-image: url();
+}
 /*# sourceMappingURL=estilos.css.map */
