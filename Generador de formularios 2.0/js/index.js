@@ -1,5 +1,7 @@
 var cantidadComponentes = 0;
-
+//Aqui se guarda el tipo de componente que se esta editando y/o creando
+//[crear/editar,tipo]
+var componenteActual = ['',''];
 function addComponent(tipo) {
     //Input menu propiedades
     let $inputMenuPropiedades = $("#inputMenuPropiedades");
@@ -41,7 +43,7 @@ function addComponent(tipo) {
                 $label = $('<label>').addClass("form-check-label").attr('for', $inputLeido + index);
                 $label.html($inputLeido);
 
-                $input = $('<input class="form-check-input" id="' + $inputLeido + index + '"  name="' + $inputMenuPropiedades.val() + '" type="checkbox" >');
+                $input = $('<input class="form-check-input" id="' + tipo + index + '"  name="' + $inputMenuPropiedades.val() + '" type="checkbox" >');
                 $div.append($input);
                 $div.append($label);
                 $componente.append($div);
@@ -56,7 +58,7 @@ function addComponent(tipo) {
                 $label = $('<label>').addClass("form-check-label").attr('for', $inputLeido + index);
                 $label.html($inputLeido);
 
-                $input = $('<input class="form-check-input" id="' + $inputLeido + index + '"  name="' + $inputMenuPropiedades.val() + '" type="radio" >');
+                $input = $('<input class="form-check-input" id="' + tipo + index + '"  name="' + $inputMenuPropiedades.val() + '" type="radio" >');
                 $div.append($input);
                 $div.append($label);
                 $componente.append($div);
@@ -64,11 +66,11 @@ function addComponent(tipo) {
             }
             break;
         case "dropdown":
-            let $dropdown=$('<select>').addClass('dropdown');
+            let $dropdown=$('<select ">').addClass('dropdown');
             for (let index = 0; index <= numeroInputs; index++) {
                 let $inputLeido = $('#input' + index).val();
 
-                let $option = $('<option>').addClass('dropdown-item').attr('href','#');
+                let $option = $('<option id="'+tipo+index+'>').addClass('dropdown-item').attr('href','#');
                 $option.html($inputLeido);
                 $dropdown.append($option);           
             }
@@ -87,10 +89,10 @@ function addComponent(tipo) {
     //Se Añade al componente el evento click
     $componente.on('click',function () {
         let clases= $(this).attr('class');
-
+        componenteActual=[$(this), 'editr'];
         console.log(clases.substr(clases.search(' '), clases.lengh));
-        mostrarMenuPropiedadesComponentes($(this));
-         
+        mostrarMenuPropiedadesComponentes();
+
     });
     //Se añade el componente al formulario
     $('#formContainerComponentes').append($componente);
@@ -109,17 +111,6 @@ function editarComponente($componente) {
     cantidadComponentes = cantidadComponentes + 1;
 }
 
-
-function mostrarMenuComponentesComplejos(cantidad) {
-    if (cantidad > 1) {
-        for (let index = 2; index <= cantidad; index++) {
-            let $inp = $('#divInputReferencia').clone().removeAttr('id');
-            $inp.find("input").attr("id", "input" + index);
-            $(".divInputs").append($inp);
-        }
-    }
-}
-
 function ocultarMenuPropiedades() {
     $('#propiedadesComponentes').css("display", "none");
     $('#menuComponentesComplejos').css("display", "none");
@@ -130,10 +121,13 @@ function ocultarMenuPropiedades() {
     $('.divInputs').empty();
 }
 
-function mostrarMenuPropiedadesComponentes(tipo, editarAnayadir) {
+function mostrarMenuPropiedadesComponentes() {
+    let tipo=componenteActual[0];
+    let editarAnayadir=componenteActual[1];
+ 
     $('#propiedadesComponentes').css('display', 'inline');
     $('#menuComponentes').css("display", "none");
-
+    
     if (tipo == "radio" || tipo == "checkbox" || tipo == "dropdown") {
         $('#menuComponentesComplejos').css("display", "inline");
     }
@@ -147,6 +141,7 @@ function mostrarMenuPropiedadesComponentes(tipo, editarAnayadir) {
         $("#buttonAnyadirModificar").off("click").click(function (event, tipoComponente = tipo) {
             editarComponente(tipoComponente);
         });
+        
     }
 
 }
@@ -161,12 +156,35 @@ $(function () {
     });
 
     $('.selectComponent').on('click', function () {
-        mostrarMenuPropiedadesComponentes($(this).attr('id'), 'crear');
+        componenteActual=[$(this).attr('id'),'crear'];
+        mostrarMenuPropiedadesComponentes();
     });
 
     $("#cantidad").change(function (event) {
         $('.divInputs').empty();
-        mostrarMenuComponentesComplejos($(this).val());
+        let cantidad=$(this).val();
+        if( componenteActual[1]=='crear'){
+            if (cantidad > 1) {
+                for (let index = 2; index <= cantidad; index++) {
+                    let $inp = $('#divInputReferencia').clone().removeAttr('id');
+                    $inp.find("input").attr("id", "input" + index);
+                    $(".divInputs").append($inp);
+                }
+            }
+        }
+        else{
+            if (cantidad > 1) {
+                for (let index = 2; index <= cantidad; index++) {
+                    let clases= componenteActual[0].attr('class');
+                    clases=clases.substr(clases.search(' ')+1, clases.lengh);
+                    componenteActual[1].find('#'+clases);
+                    let $inp = $('#divInputReferencia').clone().removeAttr('id').html();
+                    $inp.find("input").attr("id", "input" + index);
+                    $(".divInputs").append($inp);
+                }
+            }
+        }
+        
     });
 
     $("#buttonAnyadirModificar").click(function (event, tipoComponente = tipo) {
@@ -179,12 +197,14 @@ $(function () {
     });
 
     $('.form-check').click(function (){
-        mostrarMenuPropiedadesComponentes($(this), 'editar');
+        componenteActual=[$(this), 'editar'];
+        console.log("f")
+        mostrarMenuPropiedadesComponentes();
     });
 
     $('.eliminar').on('click',function (event){
         event.preventDefault();
-        console.log("j");
+        
         $(this).remove();
         console.log("j");
         return false;
